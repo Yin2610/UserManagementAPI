@@ -1,4 +1,4 @@
-﻿using Microsoft.AspNetCore.Components;
+using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using UserManagementAPI.data;
@@ -23,9 +23,14 @@ namespace UserManagementAPI.Controllers
         }
 
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<User>>> GetUsers(int page = 1, int pageSize = 10)
+        public ActionResult<IEnumerable<User>> GetUsers(int page = 1, int pageSize = 10)
         {
-            return await _context.Users.ToListAsync();
+            var pagedUsers = users
+                    .Skip((page - 1) * pageSize)
+                    .Take(pageSize)
+                    .ToList();
+
+            return Ok(pagedUsers);
         }
 
 
