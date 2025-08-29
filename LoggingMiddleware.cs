@@ -1,4 +1,4 @@
-﻿namespace UserManagementAPI
+namespace UserManagementAPI
 {
     public class LoggingMiddleware
     {
