@@ -10,7 +10,7 @@
     {
         private readonly RequestDelegate _next;
         private readonly ILogger<JwtAuthenticationMiddleware> _logger;
-        private const string SecretKey = "LcFPiMrFRimfyIRnmblEJwQmgFOju2lj"; // Store securely
+        private const string SecretKey = "redacted-secret-key"; // Store securely
 
         public JwtAuthenticationMiddleware(RequestDelegate next, ILogger<JwtAuthenticationMiddleware> logger)
         {
@@ -56,3 +56,4 @@
         }
     }
 }
+
